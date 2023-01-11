@@ -2,6 +2,7 @@ import { useReducer } from 'react';
 import './styles.css';
 import DigitButton from './DigitButton';
 import OperationButton from './OperationButton';
+import Switch from './Switch';
 
 export const ACTIONS = {
   ADD_DIGIT: 'add-digit',
@@ -15,15 +16,15 @@ function reducer(state, { type, payload }) {
   switch (type) {
     case ACTIONS.ADD_DIGIT:
       if (state.overwrite) {
-        return{
+        return {
           ...state,
           currentOperand: payload.digit,
           overwrite: false,
-        }
+        };
       }
       if (payload.digit === '0' && state.currentOperand === '0') return state;
-      if (payload.digit === '.' && state.currentOperand.includes('.'))
-        return state;
+      // if (payload.digit === '.' && state.currentOperand.includes('.'))
+      //   return state;
       return {
         ...state,
         currentOperand: `${state.currentOperand || ''}${payload.digit}`,
@@ -62,27 +63,27 @@ function reducer(state, { type, payload }) {
         return {
           ...state,
           overwrite: false,
-          currentOperand: null
-        }
+          currentOperand: null,
+        };
       }
       if (state.currentOperand == null) return state;
-      if (state.currentOperand.length === 1){
+      if (state.currentOperand.length === 1) {
         return {
           ...state,
-          currentOperand: null
-        }
+          currentOperand: null,
+        };
       }
       return {
         ...state,
-        currentOperand: state.currentOperand.slice(0, -1)
-      }
+        currentOperand: state.currentOperand.slice(0, -1),
+      };
     case ACTIONS.EVALUATE:
       if (
         state.operation == null ||
         state.currentOperand == null ||
         state.previousOperand == null
       ) {
-        return state
+        return state;
       }
 
       return {
@@ -90,8 +91,8 @@ function reducer(state, { type, payload }) {
         overwrite: true,
         previousOperand: null,
         operation: null,
-        currentOperand: evaluate(state)
-      }
+        currentOperand: evaluate(state),
+      };
     default:
   }
 }
@@ -120,15 +121,15 @@ function evaluate({ currentOperand, previousOperand, operation }) {
   return computation.toString();
 }
 
-const INTEGER_FORMATTER = new Intl.NumberFormat("en-us", {
+const INTEGER_FORMATTER = new Intl.NumberFormat('en-us', {
   maximumFractionDigits: 5,
-})
+});
 
 function formatOperand(operand) {
-  if (operand == null) return
-  const [integer, decimal] = operand.split('.')
-  if (decimal == null) return INTEGER_FORMATTER.format(integer)
-  return `${INTEGER_FORMATTER.format(integer)}.${decimal}`
+  if (operand == null) return;
+  const [integer, decimal] = operand.split('.');
+  if (decimal == null) return INTEGER_FORMATTER.format(integer);
+  return `${INTEGER_FORMATTER.format(integer)}.${decimal}`;
 }
 
 function App() {
@@ -139,6 +140,7 @@ function App() {
 
   return (
     <div className='calculator-grid'>
+      <Switch></Switch>
       <div className='output'>
         <div className='previous-operand'>
           {formatOperand(previousOperand)} {operation}
@@ -147,11 +149,17 @@ function App() {
       </div>
       <button
         className='span-two'
+        style={{ height: 80 }}
         onClick={() => dispatch({ type: ACTIONS.CLEAR })}
       >
         AC
       </button>
-      <button onClick={() => dispatch({ type: ACTIONS.DELETE_DIGIT })}>DEL</button>
+      <button
+        style={{ width: 80, height: 80 }}
+        onClick={() => dispatch({ type: ACTIONS.DELETE_DIGIT })}
+      >
+        DEL
+      </button>
       <OperationButton operation='÷' dispatch={dispatch} />
       <DigitButton digit='1' dispatch={dispatch} />
       <DigitButton digit='2' dispatch={dispatch} />
@@ -167,9 +175,9 @@ function App() {
       <OperationButton operation='-' dispatch={dispatch} />
       <DigitButton digit='.' dispatch={dispatch} />
       <DigitButton digit='0' dispatch={dispatch} />
-      <button 
+      <button
         className='span-two'
-        onClick={() => dispatch({ type: ACTIONS.EVALUATE})}
+        onClick={() => dispatch({ type: ACTIONS.EVALUATE })}
       >
         =
       </button>

@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "College Calculator",
+  "name": "Create College Calculator Sample",
   "icons": [
     {
       "src": "favicon.ico",
