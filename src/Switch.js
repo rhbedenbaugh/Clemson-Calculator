@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import './styles.css';
 import Select from 'react-select';
@@ -11,10 +12,10 @@ const options = [
 export default function Switch() {
   const [college, setCollege] = useState('cu');
 
-    function handleCollegeChange(event) {
-    setCollege(event.target.value);
-    console.log(event.target.value)
-  }
+  //   function handleCollegeChange(event) {
+  //   setCollege(event.target.value);
+  //   console.log(event.target.value)
+  // }
 
   // const [food, setFood] = useState('fruit');
 
@@ -41,8 +42,14 @@ export default function Switch() {
 
   return (
     <>
-      <Select options={options} defaultValue={college} className='span-four' align-content='center' >
-        Clemson University</Select>
+      <Select
+        options={options}
+        defaultValue={college}
+        className='span-four'
+        align-content='center'
+      >
+        Clemson University
+      </Select>
     </>
   );
 }
