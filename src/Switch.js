@@ -44,12 +44,12 @@ export default function Switch() {
     <>
       <Select
         options={options}
-        defaultValue={college}
+        defaultValue={'Clemson University'}
         className='span-four'
         align-content='center'
-      >
-        Clemson University
-      </Select>
+        name='pagename'
+        id='pagename'
+      ></Select>
     </>
   );
 }
