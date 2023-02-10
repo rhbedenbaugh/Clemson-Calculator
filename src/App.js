@@ -13,6 +13,8 @@ export const ACTIONS = {
 };
 
 function reducer(state, { type, payload }) {
+
+
   switch (type) {
     case ACTIONS.ADD_DIGIT:
       if (state.overwrite) {
@@ -139,7 +141,7 @@ function App() {
   );
 
   return (
-    <div id='pagename' className='calculator-grid'>
+    <div className='calculator-grid'>
       <Switch></Switch>
       <div className='output'>
         <div className='previous-operand'>

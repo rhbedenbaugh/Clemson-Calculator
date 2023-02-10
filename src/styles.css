@@ -6,70 +6,91 @@
   box-sizing: border-box;
 }
 
-body#cu {
-    margin: 0;
-    padding: 0;
-    align-items: center;
-    background: radial-gradient(
-        #f56600,
-        #f56600,
-        #f56600,
-        #f56600,
-        white,
-        #522d80,
-        #522d80,
-        #522d80
-      )
-      no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-  }
-  
-  #uga {
-    margin: 0;
-    padding: 0;
-    align-items: center;
-    background: radial-gradient(
-        #ba0c2f,
-        #ba0c2f,
-        #ba0c2f,
-        #ba0c2f,
-        white,
-        black,
-        black,
-        black
-      )
-      no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-  }
-  
-  #ua {
-    margin: 0;
-    padding: 0;
-    align-items: center;
-    background: radial-gradient(
-        #9e1b32,
-        #9e1b32,
-        #9e1b32,
-        #9e1b32,
-        white,
-        #828a8f,
-        #828a8f,
-        #828a8f
-      )
-      no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-  }
+body {
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  background: radial-gradient(
+      #f56600,
+      #f56600,
+      #f56600,
+      #f56600,
+      white,
+      #522d80,
+      #522d80,
+      #522d80
+    )
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 
-section {
+body.cu {
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  background: radial-gradient(
+      #522d80,
+      #522d80,
+      #522d80,
+      #522d80,
+      white,
+      #f56600,
+      #f56600,
+      #f56600
+    )
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body.uga {
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  background: radial-gradient(
+      #ba0c2f,
+      #ba0c2f,
+      #ba0c2f,
+      #ba0c2f,
+      white,
+      black,
+      black,
+      black
+    )
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body.ua {
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  background: radial-gradient(
+      #9e1b32,
+      #9e1b32,
+      #9e1b32,
+      #9e1b32,
+      white,
+      #828a8f,
+      #828a8f,
+      #828a8f
+    )
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.bodysection {
   position: relative;
   width: 100%;
   height: 100%;
@@ -135,4 +156,3 @@ section {
   color: white;
   font-size: 2.5rem;
 }
-
